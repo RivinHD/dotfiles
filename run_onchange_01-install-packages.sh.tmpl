@@ -1,5 +1,5 @@
-{{ if eq .installtype "private" -}} 
 #!/bin/sh
+{{ if eq .installtype "private" -}} 
 
 {{ if eq .osid "linux-fedora" -}}
 packages={{ join " " .packages.linux.dnf | quote }}
