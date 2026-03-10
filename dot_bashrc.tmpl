@@ -166,14 +166,15 @@ export PATH
 
 # >>> zoxide initalize >>>
 eval "$(zoxide init bash)"
-# <<< zxide initalize <<<<
+# <<< zoxide initalize <<<<
 
 # >>> setup fzf >>>
 {{- if eq .installtype "public" }}
-eval "$(~/.fzf/bin/fzf --bash)"
-{{- else }}
-eval "$(fzf --bash)"
+if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/${HOME}/.fzf/bin"
+fi
 {{- end }}
+eval "$(fzf --bash)"
 # <<< setup fzf <<<
 
 source ~/.bashrc_local
