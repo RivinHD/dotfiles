@@ -100,9 +100,9 @@ completions=(
 # Add wisely, as too many aliases slow down shell startup.
 aliases=(
   general
-{{ if eq .osid "linux-fedora" }}
+{{- if eq .osid "linux-fedora" }}
   fedora
-{{ end }}
+{{- end }}
 )
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
@@ -169,11 +169,11 @@ eval "$(zoxide init bash)"
 # <<< zxide initalize <<<<
 
 # >>> setup fzf >>>
-{{ if eq .installtype "public" }}
+{{- if eq .installtype "public" }}
 eval "$(~/.fzf/bin/fzf --bash)"
-{{ else }}
+{{- else }}
 eval "$(fzf --bash)"
-{{ end }}
+{{- end }}
 # <<< setup fzf <<<
 
 source ~/.bashrc_local
