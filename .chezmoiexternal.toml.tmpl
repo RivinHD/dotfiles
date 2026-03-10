@@ -19,6 +19,13 @@
     url = {{ gitHubLatestReleaseAssetURL "neovim/neovim" (printf "nvim-%s-x86_64.tar.gz" .chezmoi.os) | quote }}
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".local/bin/tree-sitter"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "tree-sitter/tree-sitter" (printf "tree-sitter-%s-x64.gz" .chezmoi.os) | quote }}
+    path = {{ printf "tree-sitter-%s-x64" .chezmoi.os | quote }}
+    refreshPeriod = "168h"
+
 {{      end -}}
 
 {{ end -}}
