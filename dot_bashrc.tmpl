@@ -169,7 +169,11 @@ eval "$(zoxide init bash)"
 # <<< zxide initalize <<<<
 
 # >>> setup fzf >>>
+{{ if eq .installtype "public" }}
+eval "$(~/.fzf/bin/fzf --bash)"
+{{ else }}
 eval "$(fzf --bash)"
+{{ end }}
 # <<< setup fzf <<<
 
 source ~/.bashrc_local
