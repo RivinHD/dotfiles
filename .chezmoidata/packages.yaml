@@ -1,0 +1,9 @@
+packages:
+  linux:
+    dnf:
+      - 'git'
+      - 'zoxide'
+      - 'fzf'
+      - 'neovim'
+      - 'bogofilter'
+      - 'keepassxc'

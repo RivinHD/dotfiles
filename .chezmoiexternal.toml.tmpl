@@ -1,0 +1,24 @@
+[".oh-my-bash"]
+    type = "archive"
+    url = "https://github.com/ohmybash/oh-my-bash/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+{{ if eq .installtype "public" -}}
+[".fzf"]
+    type = "git-repo"
+    url = "https://github.com/junegunn/fzf.git"
+    refreshPeriod = "168h"
+    [".fzf".clone]
+        args = ["--depth", "1"]
+
+{{      if .use_nvim -}}
+[".local"]
+    type = "archive"
+    url = {{ gitHubLatestReleaseAssetURL "neovim/neovim" (printf "nvim-%s-x86_64.tar.gz" .chezmoi.os) | quote }}
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{      end -}}
+
+{{ end -}}

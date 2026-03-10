@@ -1,0 +1,11 @@
+{{ if eq .installtype "private" -}}
+#!/bin/sh
+
+if [ ! -f "${HOME}/.config/chezmoi/key.txt" ]; then
+    mkdir -p "${HOME}/.config/chezmoi"
+    echo "The private key is missing! Include the key at '~/.config/chezmoi/key.txt'."
+    read -n 1 -p "Key added?"
+    chmod 600 "${HOME}/.config/chezmoi/key.txt"
+fi
+
+{{ end -}}

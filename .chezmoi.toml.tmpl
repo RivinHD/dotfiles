@@ -1,0 +1,32 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- $installtype_choices := list "private" "public" -}}
+{{- $installtype := promptChoiceOnce . "installtype" "What type of installation" $installtype_choices "public" -}}
+
+{{- $use_nvim := true -}}
+{{- if eq $installtype "public" -}}
+{{-     $use_nvim = promptBoolOnce . "use_nvim" "Use nvim" true -}}
+{{- end -}}
+
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age17pma20d36cp6ctpx90fl8r6mhfnmpmaydnrzdytn0095rwjv0yeq7uhjy6"
+
+[merge]
+    command = "nvim"
+    args = [
+        "-d",
+        {{ printf "%q" "{{ .Destination }}" }},
+        {{ printf "%q" "{{ .Source }}" }},
+        {{ printf "%q" "{{ .Target }}" }},
+    ]
+
+[data]
+    osid = {{ $osid | quote }}
+    installtype = {{ $installtype | quote }}
+    use_nvim = {{ $use_nvim }}
+

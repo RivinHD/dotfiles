@@ -1,0 +1,18 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Vincent Gerlach
+	email = 58261670+RivinHD@users.noreply.github.com
+[core]
+	editor = nvim -f
+[merge]
+	tool = diffview
+[mergetool]
+    keepBackup = false
+[mergetool "diffview"]
+    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+[init]
+	defaultBranch = main

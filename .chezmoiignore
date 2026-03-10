@@ -1,0 +1,18 @@
+README.md
+
+{{- if not (eq .osid "linux-fedora") }}
+.oh-my-bash-custom/aliases/fedora.aliases.sh
+{{- end }}
+
+.config/nvim/.cache
+
+{{- if eq .installtype "public" }}
+.bogofilter/
+.bogofilter/**/*
+
+{{- if not .use_nvim }}
+.config/nvim/
+.config/nvim/**/*
+{{- end }}
+
+{{- end }}
