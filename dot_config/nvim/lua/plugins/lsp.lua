@@ -51,6 +51,13 @@ return {
 					lineLength = 100,
 				},
 			})
+			vim.lsp.config("harper_ls", {
+				settings = {
+					["harper-ls"] = {
+						isolateEnglish = true,
+					},
+				},
+			})
 			vim.lsp.config("zls", {
 				settings = {
 					zls = {
