@@ -6,7 +6,7 @@ return {
 				-- LSP
 				"zls", -- zig
 				"clangd", -- c/c++
-				"basedpyright", -- python
+				"zuban", -- python
 				"tinymist", -- typst
 				"lua_ls", -- lua
 				"jsonls", -- json
