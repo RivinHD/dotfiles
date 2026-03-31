@@ -7,6 +7,7 @@ return {
 				"zls", -- zig
 				"clangd", -- c/c++
 				"zuban", -- python
+				"basedpyright", -- python
 				"tinymist", -- typst
 				"lua_ls", -- lua
 				"jsonls", -- json
@@ -69,6 +70,15 @@ return {
 
 						-- Neovim already provides basic syntax highlighting
 						semantic_tokens = "partial",
+					},
+				},
+			})
+			vim.lsp.config("basedpyright", {
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "off",
+						},
 					},
 				},
 			})
