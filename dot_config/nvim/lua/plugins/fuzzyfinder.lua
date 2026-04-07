@@ -33,9 +33,9 @@ return {
 			{
 				"gff", -- try it if you didn't it is a banger keybinding for a picker
 				function()
-					fff = require("fff").find_in_git_root()
+					fff = require("fff").live_grep()
 				end,
-				desc = "FFFind files",
+				desc = "LiFFFe grep",
 			},
 		},
 	},
