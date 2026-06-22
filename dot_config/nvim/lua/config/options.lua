@@ -9,16 +9,16 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.diagnostic.config({
-    virtual_text = {
-        severity = { min = vim.diagnostic.severity.WARN }
-    },
-    jump = {
-        severity = { min = vim.diagnostic.severity.HINT },
-        float = true
-    },
-    underline = false,
-    virtual_lines = false,
-    severity_sort = true,
+	virtual_text = {
+		severity = { min = vim.diagnostic.severity.WARN },
+	},
+	jump = {
+		severity = { min = vim.diagnostic.severity.HINT },
+		on_jump = true,
+	},
+	underline = false,
+	virtual_lines = false,
+	severity_sort = true,
 })
 
 vim.opt.incsearch = true
