@@ -14,7 +14,11 @@ vim.diagnostic.config({
 	},
 	jump = {
 		severity = { min = vim.diagnostic.severity.HINT },
-		on_jump = true,
+		on_jump = function()
+			vim.schedule(function()
+				vim.diagnostic.open_float(nil, { scope = "cursor" })
+			end)
+		end,
 	},
 	underline = false,
 	virtual_lines = false,
