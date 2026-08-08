@@ -7,3 +7,6 @@ packages:
       - 'neovim'
       - 'bogofilter'
       - 'keepassxc'
+      - 'fontawesome-fonts-web'
+      - 'fontawesome-fonts-all'
+      - 'adobe-source-sans-pro-fonts'
