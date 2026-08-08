@@ -5,6 +5,11 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".local/share/fonts"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Noto.tar.xz"
+    refreshPeriod = "168h"
+
 {{ if eq .installtype "public" -}}
 [".fzf"]
     type = "git-repo"
@@ -27,11 +32,6 @@
     refreshPeriod = "168h"
     decompress = "gzip"
     executable = true
-
-[".local/share/fonts"]
-    type = "archive"
-    url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Noto.tar.xz"
-    refreshPeriod = "168h"
 
 {{      end -}}
 
