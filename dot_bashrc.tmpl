@@ -162,6 +162,11 @@ fi
 if ! [[ "$PATH" =~ "$HOME/.local/bin:" ]]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+{{- if .use_opencode }}
+if ! [[ "$PATH" =~ "$HOME/.opencode/bin:" ]]; then
+    PATH="$HOME/.opencode/bin:$PATH"
+fi
+{{- end }}
 export PATH
 
 # >>> zoxide initalize >>>

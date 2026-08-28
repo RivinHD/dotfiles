@@ -16,3 +16,8 @@ README.md
 {{- end }}
 
 {{- end }}
+
+{{- if not .use_opencode }}
+.config/opencode/
+.config/opencode/**/*
+{{- end }}

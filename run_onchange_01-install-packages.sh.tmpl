@@ -1,4 +1,26 @@
 #!/bin/sh
+
+install() {
+    local target="$1"
+    local url="$2"
+    shift 2
+
+    if [[ -e "$target" ]]; then
+        echo "Found $target, skipping."
+        return 0
+    fi
+
+    if command -v curl >/dev/null 2>&1; then
+        curl -fsSL "$url" | bash -s -- "$@"
+    elif command -v wget >/dev/null 2>&1; then
+        wget -qO- "$url" | bash -s -- "$@"
+    else
+        echo "Failed to download with curl or wget"
+        exit 1
+    fi
+}
+
+
 {{ if eq .installtype "private" -}} 
 
 {{ if eq .osid "linux-fedora" -}}
@@ -10,23 +32,12 @@ missing=$(comm -23 <(echo $packages | tr ' ' '\n' | sort) <(echo "$installed" | 
 
 {{ else if eq .installtype "public" -}}
 
-install() {
-    if [[ ! -e "$1" ]]; then
-        if command -v wget >/dev/null ; then
-            bash -c "$(wget $2 -O -)" ${@:3}
-        elif command -v curl >/dev/null ; then
-            bash -c "$(curl -fsSL $2)" ${@:3}
-        else
-            echo "Failed to download with curl or wget"
-            exit 1
-        fi
-    else
-        echo "Found $1, skipping."
-    fi
-}
-
 install "$HOME/.local/bin/zoxide" https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 
 ~/.fzf/install --key-bindings --completion --no-update-rc
 
+{{ end -}}
+
+{{ if .use_opencode -}}
+install opencode https://opencode.ai/install --no-modify-path
 {{ end -}}

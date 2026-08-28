@@ -7,8 +7,10 @@
 {{- $installtype := promptChoiceOnce . "installtype" "What type of installation" $installtype_choices "public" -}}
 
 {{- $use_nvim := true -}}
+{{- $use_opencode := true -}}
 {{- if eq $installtype "public" -}}
 {{-     $use_nvim = promptBoolOnce . "use_nvim" "Use nvim" true -}}
+{{-     $use_opencode = promptBoolOnce . "use_opencode" "Use opencode" true -}}
 {{- end -}}
 
 encryption = "age"
@@ -29,4 +31,5 @@ encryption = "age"
     osid = {{ $osid | quote }}
     installtype = {{ $installtype | quote }}
     use_nvim = {{ $use_nvim }}
+    use_opencode = {{ $use_opencode }}
 
