@@ -32,6 +32,15 @@ return {
 		},
 	},
 	{
+		"barreiroleo/ltex_extra.nvim",
+		branch = "dev",
+		ft = { "markdown", "tex", "typst" },
+		opts = {
+			load_langs = { "en-US", "de-DE" },
+			path = ".ltex",
+		},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		version = false,
 		config = function()
@@ -63,7 +72,7 @@ return {
 				settings = {
 					ltex = {
 						language = "auto",
-						languageToolHttpServerUri = "http://192.168.178.93:8081/v2",
+						languageToolHttpServerUri = "http://192.168.178.93:8081/",
 					},
 				},
 			})
