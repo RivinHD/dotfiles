@@ -59,6 +59,14 @@ return {
 					},
 				},
 			})
+			vim.lsp.config("ltex_plus", {
+				settings = {
+					ltex = {
+						language = "auto",
+						languageToolHttpServerUri = "http://192.168.178.93:8081/v2",
+					},
+				},
+			})
 			vim.lsp.config("zls", {
 				settings = {
 					zls = {
