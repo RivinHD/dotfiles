@@ -10,7 +10,6 @@ return {
 				"basedpyright", -- python
 				"tinymist", -- typst
 				"lua_ls", -- lua
-				"jsonls", -- json
 				"rust_analyzer", -- rust
 				"neocmake", -- cmake
 				"texlab", -- latex
