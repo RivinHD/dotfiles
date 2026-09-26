@@ -33,3 +33,5 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 
 vim.opt.exrc = true
+
+vim.opt.mouse = ""
