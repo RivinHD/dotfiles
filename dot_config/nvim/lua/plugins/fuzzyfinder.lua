@@ -22,18 +22,18 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"ff", -- try it if you didn't it is a banger keybinding for a picker
+				"ff",
 				function()
 					fff = require("fff")
-					fff.scan_files()
 					fff.find_files()
 				end,
 				desc = "FFFind files",
 			},
 			{
-				"gff", -- try it if you didn't it is a banger keybinding for a picker
+				"gff",
 				function()
-					fff = require("fff").live_grep()
+					fff = require("fff")
+					fff.live_grep()
 				end,
 				desc = "LiFFFe grep",
 			},
