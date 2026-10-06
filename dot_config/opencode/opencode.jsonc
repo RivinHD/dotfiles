@@ -4,7 +4,8 @@
         "*": "ask",
         "read": "allow",
         "glob": "allow",
-        "grep": "allow"
+        "grep": "allow",
+        "websearch": "allow"
     },
     "autoupdate": true
 }
